@@ -21,7 +21,7 @@ class CCGuestbook extends CObject implements IController {
   	 * Implementing interface IController. All controllers must have an index action.
   	 */
   	public function Index() {   
-  		$this->views->SetTitle('Lydia Guestbook Example');
+  		$this->views->SetTitle('Lanaya Guestbook Example');
     	$this->views->AddInclude(LANAYA_VIEWS_PATH . '/guestbook.php', array(
       		'entries'=>$this->guestbookModel->ReadAll(),
       		'form_action'=>$this->request->CreateUrl('guestbook/handler')
@@ -33,7 +33,7 @@ class CCGuestbook extends CObject implements IController {
   	 */
 	public function Handler() {
     	if(isset($_POST['doAdd'])) {
-      		$this->guestbookModel->Add(strip_tags($_POST['newEntry']));
+      		$this->guestbookModel->Add(strip_tags($_POST['name']), strip_tags($_POST['message']));
     	}
     	elseif(isset($_POST['doClear'])) {
       		$this->guestbookModel->DeleteAll();

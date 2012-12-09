@@ -5,8 +5,10 @@
 
 <form action="<?=$form_action?>" method='post'>
   	<p>
-    	<label>Message: <br/>
-    	<textarea name='newEntry'></textarea></label>
+    	<label>Name: <br/>
+    	<input type="text" name="name"></label>
+    	<br/><br/><label>Message: <br/>
+    	<textarea name='message'></textarea></label>
   	</p>
   	<p>
     	<input type='submit' name='doAdd' value='Add message' />
@@ -19,7 +21,7 @@
 
 <?php foreach($entries as $val):?>
 	<div style='background-color:#f6f6f6;border:1px solid #ccc;margin-bottom:1em;padding:1em;'>
-	  <p>At: <?=$val['created']?></p>
+	  <p>[<?=$val['created']?>] <b><?=$val['name']?>:</b></p>
 	  <p><?=$val['entry']?></p>
 	</div>
 <?php endforeach;?>
